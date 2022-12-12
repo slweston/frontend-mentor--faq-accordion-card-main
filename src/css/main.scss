@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+img {
+	max-width: 100%;
+}
+
+:root {
+	--ff-body: 'Kumbh Sans', sans-serif;
+	--clr-text-button-expanded-and-heading-very-dark-destaurated-blue: hsl(238, 29%, 16%);
+	--clr-text-button-very-dark-grayish-blue: hsl(237, 12%, 33%);
+	--clr-text-button-hover-soft-red: hsl(14, 88%, 65%);
+	--clr-text-paragraph-dark-grayish-blue: hsl(240, 6%, 50%);
+	--clr-dividers: hsl(240, 5%, 91%);
+	--linear-gradient-body: linear-gradient(hsl(273, 75%, 66%), hsl(240, 73%, 65%));
+}
+
+$mediaMinWidth_desktop: 885px;
+$footerMaxHeight: 2.5rem;
+
+* {
+	font-family: var(--ff-body);
+}
+
+body {
+	background: var(--linear-gradient-body);
+}
+
+main {
+	overflow: auto;
+
+	.container {
+		height: calc(100vh - $footerMaxHeight);
+		min-width: 375px;
+		max-width: 375px;
+		margin-inline: auto;
+		display: grid;
+		// align-items: center;
+
+		@media screen and (min-width: $mediaMinWidth_desktop) {
+			max-width: $mediaMinWidth_desktop;
+		}
+
+		.inner-container {
+			.main-grid {
+				display: grid;
+				grid-template-rows: 130px auto;
+				background-image: url('../images/bg-pattern-mobile.svg');
+				background-position: top;
+				background-repeat: no-repeat;
+				background-color: #fff;
+				margin: 9.25rem 1.5rem 4rem;
+				padding: 0 1.5rem 3rem;
+				border-radius: 1.5rem;
+				position: relative;
+
+				@media screen and (min-width: $mediaMinWidth_desktop) {
+					grid-template-rows: unset;
+					grid-template-columns: 335px auto;
+					background-image: url('../images/bg-pattern-desktop.svg');
+					background-position: top -325px left -610px;
+					padding: unset;
+
+
+				}
+
+				.main-images {
+					position: relative;
+					top: -6.75rem;
+					padding-inline: 1.3rem;
+
+					.main-image--desktop {
+						display: none;
+					}
+
+					@media screen and (min-width: $mediaMinWidth_desktop) {
+						inset: unset;
+						top: 3.75rem;
+						width: 475px;
+						margin-left: -100px;
+						overflow: hidden;
+
+
+						.main-image--desktop {
+							display: unset;
+						}
+
+						.main-image--mobile {
+							display: none;
+						}
+
+					}
+				}
+
+				.text-content {
+					@media screen and (min-width: $mediaMinWidth_desktop) {
+						grid-column: 2;
+						padding: 3.5rem 6.15rem;
+					}
+				}
+
+				h1 {
+					text-align: center;
+					color: var(--clr-text-button-expanded-and-heading-very-dark-destaurated-blue);
+					margin-bottom: 1rem;
+
+					@media screen and (min-width: $mediaMinWidth_desktop) {
+						font-size: 1.75rem;
+						text-align: unset;
+						margin-bottom: 1.3rem;
+					}
+				}
+
+				.accordion {
+					border-bottom: 1px solid var(--clr-dividers);
+					padding-block: 1rem;
+					margin-block: 0.2rem;
+
+					@media screen and (min-width: $mediaMinWidth_desktop) {
+						padding-block: 0.75rem;
+						margin-block: 0.4rem;
+					}
+
+
+
+					button {
+						font-size: 0.81rem;
+						word-spacing: 0.025em;
+						background: none;
+						border: none;
+						cursor: pointer;
+						color: var(--clr-text-button-very-dark-grayish-blue);
+						display: grid;
+						grid-template-columns: auto 1fr;
+						align-items: center;
+						width: 100%;
+
+						.arrow {
+							margin-left: auto;
+						}
+
+						&:hover {
+							color: var(--clr-text-button-hover-soft-red);
+						}
+
+						@media screen and (min-width: $mediaMinWidth_desktop) {
+							font-size: 0.8rem;
+						}
+					}
+
+					p {
+						font-size: 0.75rem;
+						word-spacing: 0.015em;
+						line-height: 1.5;
+						padding-right: 1rem;
+						margin-top: 0.65rem;
+						color: var(--clr-text-paragraph-dark-grayish-blue);
+						display: none;
+
+						@media screen and (min-width: $mediaMinWidth_desktop) {
+							font-size: 0.7rem;
+							line-height: 1.4;
+						}
+					}
+
+
+
+					&.expanded {
+						button {
+							font-weight: bold;
+							color: var(--clr-text-button-expanded-and-heading-very-dark-destaurated-blue);
+
+							.arrow {
+								transform: rotate(180deg);
+							}
+
+							&:hover {
+								color: var(--clr-text-button-hover-soft-red);
+							}
+						}
+
+						p {
+							display: block;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+footer {
+	font-size: 0.8rem;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 0.25rem;
+	text-align: center;
+	height: $footerMaxHeight;
+	display: grid;
+	place-content: center;
+	background: #fff;
+
+	a {
+		color: blue;
+	}
+}
