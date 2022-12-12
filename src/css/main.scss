@@ -59,12 +59,25 @@ main {
 				border-radius: 1.5rem;
 				position: relative;
 
+				.box-image {
+					display: none;
+				}
+
 				@media screen and (min-width: $mediaMinWidth_desktop) {
 					grid-template-rows: unset;
 					grid-template-columns: 335px auto;
 					background-image: url('../images/bg-pattern-desktop.svg');
 					background-position: top -325px left -610px;
 					padding: unset;
+
+					.box-image {
+						display: unset;
+						position: absolute;
+						z-index: 999;
+						inset: 0;
+						top: 180px;
+						left: -100px;
+					}
 
 
 				}
@@ -73,6 +86,7 @@ main {
 					position: relative;
 					top: -6.75rem;
 					padding-inline: 1.3rem;
+					overflow: hidden;
 
 					.main-image--desktop {
 						display: none;
@@ -83,7 +97,6 @@ main {
 						top: 3.75rem;
 						width: 475px;
 						margin-left: -100px;
-						overflow: hidden;
 
 
 						.main-image--desktop {
